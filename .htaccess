@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+
+#如果路径真实存在则不重写
+RewriteCond %{REQUEST_FILENAME} -d
+
+#如果文件真实存在则不重写
+RewriteCond %{REQUEST_FILENAME} -f
+
+#如果是这些后缀的文件，就直接访问文件
+RewriteCond %{REQUEST_URI} ^.*\.(css|js|ico|php|html|htm|txt|pdf|doc|docx|xls|xlsx|ppt|pptx|gif|png|jpg|jpeg|bmp|zip|rar|mp3|mp4|swf)$
+
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

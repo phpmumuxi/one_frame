@@ -1,0 +1,4 @@
+Disallow: /data/
+Disallow: /static/
+Disallow: /include/
+
